@@ -1,1 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Event Registration module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function event_registration_help($route_name, RouteMatchInterface $route_match) {
+  if ($route_name === 'help.page.event_registration') {
+    return '<p>Custom Drupal 10 module for event registration.</p>';
+  }
+}
 
