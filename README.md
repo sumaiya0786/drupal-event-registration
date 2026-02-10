@@ -1,28 +1,35 @@
-# Drupal Event Registration Module
+## URLs
 
-## Description
-This is a custom Drupal 10 module that allows users to configure events and register for them.
+- Event Configuration Form (Admin):
+  /admin/config/event-registration
 
-## Installation
-1. Place the module inside:
-   web/modules/custom/event_registration
-2. Enable the module from Admin → Extend.
+- Event Registration Form (User):
+  /event/register
 
-## Features Implemented
-- Custom module setup
-- Drupal 10 compatible structure
-- Ready for event configuration and registration forms
+- Admin Registration Listing:
+  /admin/event-registrations
 
-## Database Tables
-- event_config: Stores event details
-- event_registration: Stores user registrations
+## Validation Logic
 
-## Forms
-- Event Configuration Form (Admin)
-- Event Registration Form (Users)
+- Duplicate registrations are prevented using Email + Event Date combination.
+- Email field is validated using Drupal email validation.
+- Special characters are restricted in text fields.
+- User-friendly error messages are shown on validation failure.
 
-## Email
-- Confirmation email sent to user and admin (Drupal Mail API)
+## AJAX Logic
 
-## Notes
-This project follows Drupal coding standards and PSR-4 structure.
+- Event Date dropdown updates dynamically based on selected category.
+- Event Name dropdown updates dynamically based on selected category and date.
+- AJAX callbacks are implemented using Drupal Form API.
+
+## Email Logic
+
+- Confirmation email is sent to the user after successful registration.
+- Admin notification email is sent if enabled in configuration.
+- Emails include:
+  - Name
+  - Event Name
+  - Event Date
+  - Category
+- Drupal Mail API is used for sending emails.
+
